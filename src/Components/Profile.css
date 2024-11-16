@@ -1,0 +1,195 @@
+/* Base styling for the profile container */
+.profile-container {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  transition: background-color 0.3s ease;
+}
+
+.profile-container.dark {
+  background-color: #2d2d2d;
+  color: #f5f5f5;
+}
+
+/* Header Section */
+.profile-header {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #ccc;
+}
+
+.profile-header h2 {
+  margin: 0;
+}
+
+.logout-btn {
+  background-color: #f44336;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.logout-btn:hover {
+  background-color: #d32f2f;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.theme-toggle:hover {
+  color: #4CAF50;
+}
+
+/* Guest User Section */
+.guest-welcome {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.guest-actions button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  margin: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.guest-actions button:hover {
+  background-color: #388E3C;
+}
+
+/* Profile Card */
+.profile-card {
+  background-color: #fff;
+  width: 90%;
+  max-width: 800px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.profile-pic-container {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.profile-pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-actions button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.profile-actions button:hover {
+  background-color: #388E3C;
+}
+
+/* Account Stats */
+.profile-stats {
+  width: 90%;
+  max-width: 800px;
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.stat-card {
+  width: 30%;
+  background-color: #e0f7fa;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card h4 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.activity-feed {
+  width: 90%;
+  max-width: 800px;
+  margin-top: 40px;
+}
+
+.activity {
+  background-color: #f1f8e9;
+  padding: 10px 20px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.account-completeness {
+  width: 90%;
+  max-width: 800px;
+  margin-top: 40px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.progress-bar {
+  width: 100%;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  height: 8px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.progress {
+  height: 100%;
+  background-color: #4caf50;
+}

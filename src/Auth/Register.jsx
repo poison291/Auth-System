@@ -16,7 +16,6 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordVisible, setPasswordVisible] = useState(false);
-//   const [LoggedIn, setLoggedIn] = useState(false);
 
   const navigate = useNavigate();
 
@@ -30,10 +29,19 @@ export default function Register() {
         password
       );
       const user = response.user;
-      console.log(user);
-
-        navigate("/profile");
       toast.success(`User Registered as ${email}`);
+      const userData = {
+        email: user.email,
+        displayName: user.displayName || email.split("@")[0],
+        photoURL: user.photoURL || "https://via.placeholder.com/150",
+        uid: user.uid,
+        emailVerified: user.emailVerified,
+      };
+
+      toast.success(`User Registered as ${email}`);
+      console.log(userData);
+
+      navigate("/profile", { state: { user: userData } });
     } catch (error) {
       console.log(error.message);
       toast.error(`${error.message}`);
@@ -46,11 +54,21 @@ export default function Register() {
 
     try {
       const request = await signInWithPopup(auth, provider);
-      toast.success(`User Register as ${user.email}`);
       const user = request.user;
-      console.log(user);
 
-          navigate("/profile");
+      // Extract only serializable user data (e.g., email, displayName)
+      const userData = {
+        email: user.email,
+        displayName: user.displayName,
+        photoURL: user.photoURL,
+        uid: user.uid,
+        emailVerified: user.emailVerified,
+      };
+
+      toast.success(`User Register as ${user.email}`);
+      console.log(userData);
+
+      navigate("/profile", { state: { user: userData } }); // Pass serializable user data
     } catch (error) {
       console.log(error.message);
       toast.error(`${error.message}`);
@@ -66,7 +84,7 @@ export default function Register() {
     <>
       <div className="reg-content">
         <div className="register-form">
-          <h1>Sign In</h1>
+          <h1>Sign Up</h1>
           <form onSubmit={handleSubmit}>
             <input
               type="email"
@@ -89,7 +107,7 @@ export default function Register() {
                 {passwordVisible ? <FaRegEyeSlash /> : <FaRegEye />}
               </span>
             </div>
-            <button type="submit">Register</button>
+            <button type="submit">Sign Up</button>
           </form>
           <h2 className="or">Or</h2>
           <div className="google-box">

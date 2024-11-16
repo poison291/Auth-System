@@ -1,9 +1,10 @@
 import React from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Home from '../Componenets/Home'
+import Home from '../Components/Home'
 import Login from '../Auth/Login'
 import Register from '../Auth/Register'
-import Profile from '../Componenets/Profile'
+import Profile from '../Components/Profile'
+
 
 export default function Routing() {
     const router = createBrowserRouter([
@@ -20,6 +21,7 @@ export default function Routing() {
             element: <Register/>
         },
         {
+
             path: '/profile',
             element: <Profile/>
         }
@@ -28,7 +30,6 @@ export default function Routing() {
    <>
    <div className="app">
     <RouterProvider router={router}/>
-
    </div>
    </>
   )

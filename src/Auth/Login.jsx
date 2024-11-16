@@ -15,7 +15,6 @@ import { Link, useNavigate } from "react-router-dom";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [LoggedIn, setLoggedIn] = useState(false);
   const [passwordVisible, setPasswordVisible] = useState(false);
 
   const navigate = useNavigate();
@@ -27,7 +26,7 @@ export default function Login() {
       const response = await signInWithEmailAndPassword(auth, email, password);
       const user = response.user;
       console.log(user);
-    navigate("/profile");
+      navigate("/profile", { state: { user } });
       toast.success(`User Logged in as ${user.email}`);
     } catch (error) {
       console.log(error.message);
@@ -38,13 +37,26 @@ export default function Login() {
   //! Google Login
   const handleGoogleLogin = async () => {
     const provider = new GoogleAuthProvider();
-
+  
     try {
       const request = await signInWithPopup(auth, provider);
       const user = request.user;
-      console.log(user);
-        navigate("/profile");
-      toast.success(`User Logged in as ${user.email}`);
+  
+
+      const userData = {
+        email: user.email,
+        displayName: user.displayName,
+        photoURL: user.photoURL,
+        uid: user.uid,
+        emailVerified: user.emailVerified,
+        }
+     
+      
+  
+      toast.success(`User Register as ${user.email}`);
+      console.log(userData);
+  
+      navigate("/profile", { state: { user: userData } }); // Pass serializable user data
     } catch (error) {
       console.log(error.message);
       toast.error(`${error.message}`);
