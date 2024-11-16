@@ -1,0 +1,129 @@
+
+ 
+  .register-form {
+    background: #1e1e1e;
+    user-select: none;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    width: 100%;
+  }
+  
+ 
+  .register-form h1 {
+    text-align: center;
+    color: #f1f1f1;
+    margin-bottom: 20px;
+  }
+  
+ 
+  .register-form input[type="email"],
+  .register-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #444444;
+    background-color: #333333;
+    color: #ffffff;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+  
+  .register-form input[type="email"]:focus,
+  .register-form input[type="password"]:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+ 
+  .register-form button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .register-form button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+ 
+  @media (max-width: 480px) {
+    .register-form {
+      padding: 15px 20px;
+    }
+  
+    .register-form h1 {
+      font-size: 20px;
+    }
+  
+    .register-form button[type="submit"] {
+      font-size: 14px;
+    }
+  }
+  
+
+  .or {
+    text-align: center;
+    font-size: 16px;
+    color: #aaaaaa;
+  }
+
+
+  .password-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  
+  .password-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #444444;
+    background-color: #333333;
+    color: #ffffff;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+  .password-container input:focus{
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  .toggle-password {
+    position: absolute;
+    right: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #555;
+    user-select: none;
+  }
+  
+  .toggle-password:hover {
+    color: #007bff;
+  }
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+  .reg-content{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+  }
+
+  
