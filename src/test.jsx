@@ -1,20 +1,24 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, {  useState, useEffect } from "react";
 import { getAuth } from "firebase/auth";
-import { authStateChanger } from "./Auth/firebase";
-import { currentUser } from "./Auth/firebase";
+import { onAuthStateChanged } from "firebase/auth";
 
 export default function Test() {
-  // const auth = getAuth()
-  const user = currentUser();
+  const [userData, setuserData] = useState()
+  const auth = getAuth()
 
-  const [userData, setuserData] = useState();
-  useEffect(() => {
-    setuserData(user);
-}, [user]);
-// currentUser()
-console.log(userData);
-  return 
+  useEffect(()=>{
+    onAuthStateChanged(auth, (user)=>{
+     if (user) setuserData(user)
+    })
+  },[auth])
+
+console.log(userData?.photoURL);
+
+  return (
   <div>
     Hello Anmol!
-  </div>;
+    <h1>test {userData?.email}</h1>
+    <img src={userData?.photoURL} alt="" />
+  </div>
+  )
 }   

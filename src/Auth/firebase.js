@@ -13,17 +13,5 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app)
 
-const authStateChanger = () => {
-  const auth = getAuth()
-  onAuthStateChanged(auth, (user)=>{
-    if (user) return user
-  })
-}
-const currentUser = () => {
-  const auth = getAuth()
-  if(auth.currentUser){
-    return auth?.currentUser
-  }
-}
 
-export {auth, authStateChanger, currentUser}
+export {auth}
