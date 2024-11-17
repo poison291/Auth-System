@@ -4,6 +4,7 @@ import Home from '../Components/Home'
 import Login from '../Auth/Login'
 import Register from '../Auth/Register'
 import Profile from '../Components/Profile'
+import Test from '../test'
 
 
 export default function Routing() {
@@ -19,11 +20,16 @@ export default function Routing() {
         {
             path: '/register',
             element: <Register/>
+    
         },
         {
 
             path: '/profile',
             element: <Profile/>
+        },
+        {
+            path: '/test',
+            element: <Test/>
         }
     ])
   return (

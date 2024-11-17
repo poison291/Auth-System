@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Register.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -6,16 +6,20 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import { auth } from "./firebase";
 import { FaRegEye } from "react-icons/fa";
 import { FaRegEyeSlash } from "react-icons/fa";
+
 import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
 
+
 export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordVisible, setPasswordVisible] = useState(false);
+
+
 
   const navigate = useNavigate();
 
@@ -37,6 +41,7 @@ export default function Register() {
         uid: user.uid,
         emailVerified: user.emailVerified,
       };
+
 
       toast.success(`User Registered as ${email}`);
       console.log(userData);
@@ -64,7 +69,6 @@ export default function Register() {
         uid: user.uid,
         emailVerified: user.emailVerified,
       };
-
       toast.success(`User Register as ${user.email}`);
       console.log(userData);
 

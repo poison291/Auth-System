@@ -7,79 +7,45 @@ import { FaSignInAlt, FaUserPlus, FaSun, FaMoon } from "react-icons/fa";
 import { onAuthStateChanged } from "firebase/auth/cordova";
 
 export default function Profile() {
-  const [demo, setdemo] = useState('')
+  const [demo, setdemo] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
-  const [user, setuser] = useState('')
+  const [user, setuser] = useState("");
 
-  const auth = getAuth()
-
-
+  const auth = getAuth();
 
   useEffect(() => {
-
     try {
-
       onAuthStateChanged(auth, (user) => {
         if (user) {
-
-          setuser(user.currentUser);
-        }
-        else {
+          setuser(user);
+        } else {
           console.log(false);
-
         }
-      })
+      });
     } catch (error) {
-
       console.log(error.message);
-
     }
-
-  }, [auth])
+  }, [auth]);
 
   console.log(user);
-
-
 
   const [darkMode, setDarkMode] = useState(false);
   const toggleDarkMode = () => setDarkMode((prev) => !prev);
 
-
   const handleLogout = async () => {
-    await auth.signOut()
-    navigate('/')
+    await auth.signOut();
+    navigate("/");
     // navigate("/login");
   };
-
-
-  // if (!user) {
-  //   return (
-  //     <div className={`profile-container ${darkMode ? "dark" : ""}`}>
-  //       <div className="guest-welcome">
-  //         <h2>Welcome, Guest!</h2>
-  //         <p>Create an account to unlock all features.</p>
-  //         <div className="guest-actions">
-  //           <button onClick={() => navigate("/register")}>
-  //             <FaUserPlus /> Sign Up
-  //           </button>
-  //           <button onClick={() => navigate("/login")}>
-  //             <FaSignInAlt /> Log In
-  //           </button>
-  //         </div>
-  //       </div>
-  //       <button className="theme-toggle" onClick={toggleDarkMode}>
-  //         {darkMode ? <FaSun /> : <FaMoon />}
-  //       </button>
-  //     </div>
-  //   );
-  // }
 
   return (
     <div className={`profile-container ${darkMode ? "dark" : ""}`}>
       <div className="profile-header">
         <h2>Welcome Back, {user?.displayName || "User"}</h2>
-        <button className="logout-btn" onClick={handleLogout}>Log Out</button>
+        <button className="logout-btn" onClick={handleLogout}>
+          Log Out
+        </button>
         <button className="theme-toggle" onClick={toggleDarkMode}>
           {darkMode ? <FaSun /> : <FaMoon />}
         </button>
@@ -103,7 +69,9 @@ export default function Profile() {
         </div>
 
         <div className="profile-actions">
-          <button onClick={() => navigate("/edit-profile")}>Edit Profile</button>
+          <button onClick={() => navigate("/edit-profile")}>
+            Edit Profile
+          </button>
         </div>
       </div>
 

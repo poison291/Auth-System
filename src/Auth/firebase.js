@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import {  getAuth } from "firebase/auth";
+import {  getAuth, onAuthStateChanged } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyC5q1Qmk3-mICXmB1Xprs3mWkKI-gyxo0w",
@@ -13,5 +13,17 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app)
 
+const authStateChanger = () => {
+  const auth = getAuth()
+  onAuthStateChanged(auth, (user)=>{
+    if (user) return user
+  })
+}
+const currentUser = () => {
+  const auth = getAuth()
+  if(auth.currentUser){
+    return auth?.currentUser
+  }
+}
 
-export {auth}
+export {auth, authStateChanger, currentUser}
